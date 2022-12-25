@@ -29,6 +29,7 @@ def start_moderation(limit, offset):
 def parsing_moderation(spages, response):
     items = get_items(response.text)
     u = Utils.Utils()
+    u.remove_dir_images()
     u.create_dir_images()
     iterations = 0
     total_iterations = 0
