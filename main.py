@@ -109,5 +109,5 @@ for x in range(1000):
         break
     end_time = datetime.datetime.now().timestamp()
     print("Time iterations: ", (end_time - start_time))
-    if (end_time - start_time) > 1800:
+    if (end_time - start_time) > 1500:
         break
