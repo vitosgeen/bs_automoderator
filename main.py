@@ -102,12 +102,12 @@ n = len(sys.argv)
 limit_arg = sys.argv[1]
 offset_arg = sys.argv[2]
 conf.load_dotenv()
-start_time = datetime.now().timestamp()
+start_time = datetime.datetime.now().timestamp()
 for x in range(1000):
     x = start_moderation(limit_arg, offset_arg)
     if not x:
         break
-    end_time = datetime.now().timestamp()
+    end_time = datetime.datetime.now().timestamp()
     print("Time iterations: ", (end_time - start_time))
     if (end_time - start_time) > 1800:
         break
