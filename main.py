@@ -28,7 +28,8 @@ def start_moderation(limit, offset):
     return True
 
 def parsing_moderation(spages, response):
-    items = get_items(response.text)
+    items = get_items(spages, response.text)
+    
     u = Utils.Utils()
     u.remove_dir_images()
     u.create_dir_images()
@@ -83,7 +84,7 @@ def parsing_moderation(spages, response):
 
         spages.page_accept(item["sk_id"], item["ski_id"])
 
-def get_items(response_text):
+def get_items(spages, response_text):
     soup = BeautifulSoup(response_text, 'lxml')
     elements = soup.select(".cars9 div.row-images div.item-image")
     items = []
@@ -94,7 +95,8 @@ def get_items(response_text):
         item['ski_id'] = ski_id
         item['sk_id'] = sk_id
         item['img_src'] = el.find_all("img")[0]["data-src"]
-        item['img_orig_src'] = el["data-orig"]        
+        item['img_orig_src'] = el["data-orig"]
+        item['img_orig_src'] = item['img_orig_src'].replace(spages.url_orig, spages.url_base)
         items.append(item)
     return items
 

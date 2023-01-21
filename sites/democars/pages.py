@@ -20,6 +20,7 @@ class Pages:
 
     # Const
     url_base = ""
+    url_orig = ""
     PAGE_LOGIN = "/user/login"
     PAGE_LOGIN_NAME = "admin"
     PAGE_LOGIN_PASS = "123"
@@ -32,6 +33,7 @@ class Pages:
 
     def __init__(self, name, passw):
         self.url_base = str(os.getenv('URL_BASE'))
+        self.url_orig = str(os.getenv('URL_ORIG'))
         self.PAGE_LOGIN_NAME = name
         self.PAGE_LOGIN_PASS = passw
         
