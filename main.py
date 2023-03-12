@@ -18,7 +18,7 @@ import conf
 
 
 def start_moderation(limit, offset):
-    p = pages.Pages("admin", "123")
+    p = pages.Pages("admin", "2sX3sv4EqDd6BiB")
     p.login()
     response_mpage = p.page_moderator(limit, offset)
     if not response_mpage:
